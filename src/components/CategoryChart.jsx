@@ -1,10 +1,11 @@
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { getCategoryTotals, CATEGORY_LABELS, formatCO2 } from '../utils/helpers';
 
 const COLORS = {
-  commute: '#3B82F6',      // blue
-  food: '#F97316',          // orange
-  home_energy: '#A855F7',   // purple
+  commute: '#3B82F6',
+  food: '#F97316',
+  home_energy: '#A855F7',
+  shopping: '#10b981',
 };
 
 export default function CategoryChart({ activities }) {
@@ -32,31 +33,28 @@ export default function CategoryChart({ activities }) {
         Emissions by Category
       </h3>
       
-      <ResponsiveContainer width="100%" height={250}>
+      <ResponsiveContainer width="100%" height={220}>
         <PieChart>
           <Pie
             data={chartData}
             cx="50%"
             cy="50%"
-            labelLine={false}
-            label={({ name, percent }) => 
-              `${name} ${(percent * 100).toFixed(0)}%`
-            }
-            outerRadius={80}
-            fill="#8884d8"
+            innerRadius={55}
+            outerRadius={90}
             dataKey="value"
+            paddingAngle={2}
           >
             {chartData.map((entry, index) => (
-              <Cell 
-                key={`cell-${index}`} 
-                fill={COLORS[entry.category]} 
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[entry.category] || '#94a3b8'}
               />
             ))}
           </Pie>
-          <Tooltip 
-            formatter={(value) => formatCO2(value)}
+          <Tooltip
+            formatter={(value, name) => [formatCO2(value), name]}
             contentStyle={{
-              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+              backgroundColor: 'rgba(255,255,255,0.97)',
               border: '1px solid #e5e7eb',
               borderRadius: '0.5rem',
               padding: '0.5rem 0.75rem',
@@ -66,7 +64,7 @@ export default function CategoryChart({ activities }) {
       </ResponsiveContainer>
 
       {/* Category List */}
-      <div className="mt-6 space-y-3">
+      <div className="mt-4 space-y-2">
         {categoryData.map((item) => (
           <div
             key={item.category}
@@ -74,11 +72,11 @@ export default function CategoryChart({ activities }) {
           >
             <div className="flex items-center gap-3">
               <div
-                className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: COLORS[item.category] }}
-              ></div>
+                className="w-3 h-3 rounded-full flex-shrink-0"
+                style={{ backgroundColor: COLORS[item.category] || '#94a3b8' }}
+              />
               <span className="text-sm font-medium text-carbon-700">
-                {CATEGORY_LABELS[item.category]}
+                {CATEGORY_LABELS[item.category] || item.category}
               </span>
             </div>
             <div className="text-right">

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { authService } from './services/api';
 import AuthPage from './pages/AuthPage';
 import Dashboard from './pages/Dashboard';
+import AnalyticsPage from './pages/AnalyticsPage';
 
 function PrivateRoute({ children }) {
   return authService.isAuthenticated() ? children : <Navigate to="/" />;
@@ -28,6 +29,14 @@ export default function App() {
           element={
             <PrivateRoute>
               <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/analytics"
+          element={
+            <PrivateRoute>
+              <AnalyticsPage />
             </PrivateRoute>
           }
         />

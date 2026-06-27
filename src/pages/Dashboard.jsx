@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { activitiesService, authService } from '../services/api';
-import { LogOut, Plus, Leaf, TrendingDown } from 'lucide-react';
+import { LogOut, Plus, Leaf, TrendingDown, BarChart2 } from 'lucide-react';
 import ActivityList from '../components/ActivityList';
 import AddActivityModal from '../components/AddActivityModal'; // ← FIXED: Changed from ActivityList to AddActivityModal
 import StatsCards from '../components/StatsCards';
@@ -76,13 +76,22 @@ export default function Dashboard() {
                 <p className="text-xs text-carbon-600">Your environmental dashboard</p>
               </div>
             </div>
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-2 px-4 py-2 text-carbon-600 hover:text-carbon-900 hover:bg-carbon-50 rounded-lg transition-colors"
-            >
-              <LogOut className="w-4 h-4" />
-              <span className="hidden sm:inline">Logout</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => navigate('/analytics')}
+                className="flex items-center gap-2 px-4 py-2 text-carbon-600 hover:text-carbon-900 hover:bg-carbon-50 rounded-lg transition-colors"
+              >
+                <BarChart2 className="w-4 h-4" />
+                <span className="hidden sm:inline">Analytics</span>
+              </button>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-4 py-2 text-carbon-600 hover:text-carbon-900 hover:bg-carbon-50 rounded-lg transition-colors"
+              >
+                <LogOut className="w-4 h-4" />
+                <span className="hidden sm:inline">Logout</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>

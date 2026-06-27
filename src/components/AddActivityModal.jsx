@@ -163,18 +163,28 @@ export default function AddActivityModal({ onClose, onSuccess }) {
           {/* Quantity */}
           <div>
             <label className="block text-sm font-semibold text-carbon-700 mb-2">
-              Quantity ({selectedTypeInfo?.unit || 'units'})
+              Quantity
+              {selectedTypeInfo?.unit && (
+                <span className="ml-1 font-normal text-carbon-500">({selectedTypeInfo.unit})</span>
+              )}
             </label>
-            <input
-              type="number"
-              step="0.01"
-              min="0.01"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-              className="input-field"
-              placeholder={`e.g., 25`}
-              required
-            />
+            <div className="relative">
+              <input
+                type="number"
+                step="0.01"
+                min="0.01"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                className="input-field pr-16"
+                placeholder="e.g., 25"
+                required
+              />
+              {selectedTypeInfo?.unit && (
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-carbon-400 pointer-events-none">
+                  {selectedTypeInfo.unit}
+                </span>
+              )}
+            </div>
             {quantity && selectedTypeInfo && (
               <p className="mt-2 text-sm text-earth-600 font-medium">
                 ≈ {(parseFloat(quantity) * selectedTypeInfo.factor).toFixed(2)} kg CO₂

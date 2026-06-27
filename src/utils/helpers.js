@@ -93,12 +93,97 @@ export const ACTIVITY_METADATA = {
     category: 'home_energy',
     unit: 'kWh'
   },
+  clothing: {
+    icon: '👕',
+    label: 'Clothing',
+    category: 'shopping',
+    unit: 'items'
+  },
+  electronics: {
+    icon: '💻',
+    label: 'Electronics',
+    category: 'shopping',
+    unit: 'items'
+  },
+  flight_short: {
+    icon: '✈️',
+    label: 'Short Flight',
+    category: 'commute',
+    unit: 'km'
+  },
+  flight_long: {
+    icon: '🛫',
+    label: 'Long Flight',
+    category: 'commute',
+    unit: 'km'
+  },
+  motorbike: {
+    icon: '🏍️',
+    label: 'Motorbike',
+    category: 'commute',
+    unit: 'km'
+  },
+  fish: {
+    icon: '🐟',
+    label: 'Fish',
+    category: 'food',
+    unit: 'kg'
+  },
+  eggs: {
+    icon: '🥚',
+    label: 'Eggs',
+    category: 'food',
+    unit: 'kg'
+  },
+  cheese: {
+    icon: '🧀',
+    label: 'Cheese',
+    category: 'food',
+    unit: 'kg'
+  },
+  milk: {
+    icon: '🥛',
+    label: 'Milk',
+    category: 'food',
+    unit: 'kg'
+  },
+  tofu: {
+    icon: '🫘',
+    label: 'Tofu',
+    category: 'food',
+    unit: 'kg'
+  },
+  rice: {
+    icon: '🍚',
+    label: 'Rice',
+    category: 'food',
+    unit: 'kg'
+  },
+  vegetables: {
+    icon: '🥦',
+    label: 'Vegetables',
+    category: 'food',
+    unit: 'kg'
+  },
+  fruits: {
+    icon: '🍎',
+    label: 'Fruits',
+    category: 'food',
+    unit: 'kg'
+  },
+  beans: {
+    icon: '🫘',
+    label: 'Beans',
+    category: 'food',
+    unit: 'kg'
+  },
 };
 
 export const CATEGORY_LABELS = {
   commute: 'Transportation',
   food: 'Food',
   home_energy: 'Home Energy',
+  shopping: 'Shopping',
 };
 
 export const CATEGORY_COLORS = {
@@ -116,6 +201,11 @@ export const CATEGORY_COLORS = {
     bg: 'bg-purple-100',
     text: 'text-purple-700',
     border: 'border-purple-300',
+  },
+  shopping: {
+    bg: 'bg-green-100',
+    text: 'text-green-700',
+    border: 'border-green-300',
   },
 };
 

@@ -97,14 +97,20 @@ export const activitiesService = {
   },
 };
 
-// Analytics service (for future expansion)
+// Analytics service
 export const analyticsService = {
   async getSummary(period = 'week') {
     const token = authService.getToken();
     const response = await fetch(`${API_BASE_URL}/analytics/summary?period=${period}`, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
+      headers: { 'Authorization': `Bearer ${token}` },
+    });
+    return handleResponse(response);
+  },
+
+  async getTrends(period = 'week') {
+    const token = authService.getToken();
+    const response = await fetch(`${API_BASE_URL}/analytics/trends?period=${period}`, {
+      headers: { 'Authorization': `Bearer ${token}` },
     });
     return handleResponse(response);
   },
