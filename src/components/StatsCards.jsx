@@ -69,10 +69,7 @@ export default function StatsCards({ activities }) {
             </div>
             
             {/* Decorative gradient bar */}
-            <div className="mt-4 h-1 rounded-full bg-gradient-to-r opacity-20" 
-                 style={{ backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))` }}
-                 className={`bg-gradient-to-r ${stat.color}`}>
-            </div>
+            <div className={`mt-4 h-1 rounded-full bg-gradient-to-r opacity-20 ${stat.color}`} />
           </div>
         );
       })}
